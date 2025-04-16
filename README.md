@@ -93,15 +93,20 @@ string message      # Status message
 For use with TurtleBot3:
 ```bash
 # Terminal 1 - Launch TurtleBot3
+export TURTLEBOT3_MODEL=burger
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
-# Terminal 2 - Teleoperation
+# Terminal 2 - Launch TurtleBot3 nav2
+export TURTLEBOT3_MODEL=burger
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+# Terminal 3 - Teleoperation
 ros2 run turtlebot3_teleop teleop_keyboard
 
-# Terminal 3 - Trajectory Tools
+# Terminal 4 - Trajectory Tools
 ros2 run trajectory_tools trajectory_publisher_node
 ```
-
+After running the nodes move the robot around. nodes will track the path.
 ##  Debugging Tips
 
 Check available topics and services:
