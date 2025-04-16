@@ -1,0 +1,227 @@
+🧩 Service Usage
+Save Trajectory
+bash
+Always show details
+
+Copy
+ros2 service call /save_trajectory trajectory_tools/srv/SaveTrajectory "{file_format: 'json', duration: 10.0, file_path: '/tmp/trajectory.json'}"
+Load Trajectory
+bash
+Always show details
+
+Copy
+ros2 service call /load_trajectory trajectory_tools/srv/LoadTrajectory "{file_path: '/tmp/trajectory.json'}"
+📂 Supported Formats
+JSON
+
+YAML
+
+Each pose includes position, orientation, and timestamp.
+
+📁 File Structure
+pgsql
+Always show details
+
+Copy
+trajectory_tools/
+├── include/
+├── src/
+├── srv/
+├── CMakeLists.txt
+└── package.xml
+📘 Code Explanation
+trajectory_publisher_node.cpp
+Subscribes to robot poses (or odometry).
+
+Stores poses with timestamps.
+
+Publishes visualization markers.
+
+Offers a service to save data via SaveTrajectory.
+
+trajectory_reader_node.cpp
+Loads trajectory from a file.
+
+Transforms poses to odom frame (if TF is used).
+
+Publishes loaded poses as MarkerArray.
+
+trajectory_saver.cpp/hpp
+Provides functions to save and load trajectory.
+
+Supports JSON and YAML formats.
+
+Filters trajectory based on timestamp duration.
+
+Uses mutex for thread-safe access.
+
+SaveTrajectory.srv
+Format: string file_format, double duration, string file_path
+
+LoadTrajectory.srv
+Format: string file_path
+
+👨‍💻 Maintainer
+Pratik Handore — pratikhandore01@gmail.com
+
+📝 License
+Apache-2.0 """
+
+Save to README.md
+readme_path = "/mnt/data/README.md" with open(readme_path, "w") as f: f.write(readme_content)
+
+readme_path
+
+Always show details
+
+Copy
+
+Analyzed
+python
+Always show details
+
+Copy
+# Re-run necessary steps after code execution state reset
+import zipfile
+import os
+
+# Re-extract the original ZIP file
+zip_path = "/mnt/data/47595110-e2ac-4d5a-b3a4-ec4c3c9f97ce.zip"
+extract_path = "/mnt/data/extracted_files"
+
+with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+    zip_ref.extractall(extract_path)
+
+# Re-create README.md file
+readme_content = """
+# trajectory_tools
+
+**trajectory_tools** is a ROS 2 package designed to **record**, **save**, **read**, and **visualize** robot trajectories. It provides tools and services for trajectory data management and visualization.
+
+---
+
+## 📦 Package Overview
+
+- `trajectory_publisher_node`: Collects and publishes robot path as a MarkerArray.
+- `trajectory_reader_node`: Reads a saved trajectory and republishes it.
+- `trajectory_saver`: Utility for saving trajectories in JSON/YAML format.
+- Custom services: `SaveTrajectory.srv`, `LoadTrajectory.srv`.
+
+---
+
+## 🔧 Dependencies
+
+- ROS 2 (Humble or newer)
+- `rclcpp`, `geometry_msgs`, `visualization_msgs`, `nav_msgs`
+- `tf2_geometry_msgs`
+- `nlohmann_json`, `yaml-cpp`
+
+---
+
+## 🚀 Build & Run
+
+```bash
+cd ~/assignment_ws
+colcon build --packages-select trajectory_tools
+source install/setup.bash
+ros2 run trajectory_tools trajectory_publisher_node
+ros2 run trajectory_tools trajectory_reader_node
+🧪 Debugging
+If no executable found: ensure install(TARGETS ...) is correct and includes RUNTIME DESTINATION lib/${PROJECT_NAME}
+
+Clean build:
+
+bash
+Always show details
+
+Copy
+rm -rf build install log
+colcon build --packages-select trajectory_tools
+source install/setup.bash
+🧩 Service Usage
+Save Trajectory
+bash
+Always show details
+
+Copy
+ros2 service call /save_trajectory trajectory_tools/srv/SaveTrajectory "{file_format: 'json', duration: 10.0, file_path: '/tmp/trajectory.json'}"
+Load Trajectory
+bash
+Always show details
+
+Copy
+ros2 service call /load_trajectory trajectory_tools/srv/LoadTrajectory "{file_path: '/tmp/trajectory.json'}"
+📂 Supported Formats
+JSON
+
+YAML
+
+Each pose includes position, orientation, and timestamp.
+
+📁 File Structure
+pgsql
+Always show details
+
+Copy
+trajectory_tools/
+├── include/
+├── src/
+├── srv/
+├── CMakeLists.txt
+└── package.xml
+📘 Code Explanation
+trajectory_publisher_node.cpp
+Subscribes to robot poses (or odometry).
+
+Stores poses with timestamps.
+
+Publishes visualization markers.
+
+Offers a service to save data via SaveTrajectory.
+
+trajectory_reader_node.cpp
+Loads trajectory from a file.
+
+Transforms poses to odom frame (if TF is used).
+
+Publishes loaded poses as MarkerArray.
+
+trajectory_saver.cpp/hpp
+Provides functions to save and load trajectory.
+
+Supports JSON and YAML formats.
+
+Filters trajectory based on timestamp duration.
+
+Uses mutex for thread-safe access.
+
+SaveTrajectory.srv
+Format: string file_format, double duration, string file_path
+
+LoadTrajectory.srv
+Format: string file_path
+
+👨‍💻 Maintainer
+Pratik Handore — pratikhandore01@gmail.com
+
+📝 License
+Apache-2.0 """
+
+Save README.md
+readme_path = "/mnt/data/README.md" with open(readme_path, "w") as f: f.write(readme_content)
+
+readme_path
+
+Always show details
+
+Copy
+Result
+'/mnt/data/README.md'
+All done! ✅
+You can now download your full, detailed README.md file here:
+
+👉 Click to download README.md
+
+It includes explanations of every node and service, build/run instructions, and helpful debugging steps.
+
+Let me know if you want to bundle it into a ZIP with the rest of your package, or need anything else added! ​

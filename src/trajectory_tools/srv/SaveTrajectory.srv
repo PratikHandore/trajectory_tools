@@ -1,0 +1,6 @@
+string file_path
+string format       # "json", "csv", or "yaml"
+float64 duration    # duration in seconds to save (0 for all)
+---
+bool success
+string message

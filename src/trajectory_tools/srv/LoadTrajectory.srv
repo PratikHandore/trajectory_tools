@@ -1,0 +1,5 @@
+string file_path
+string format       # "json", "csv", or "yaml"
+---
+bool success
+string message
