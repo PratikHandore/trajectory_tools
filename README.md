@@ -16,7 +16,7 @@ A ROS 2 package for recording, saving, and visualizing robot trajectories in mul
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/trajectory_tools.git
+git clone https://github.com/PratikHandore/trajectory_tools.git
 cd trajectory_tools
 
 # Build the package
